@@ -1,0 +1,14 @@
+*.rbc
+capybara-*.html
+.rspec
+**/log
+**/tmp
+**/public/system
+**/coverage/
+**/spec/tmp
+*.orig
+rerun.txt
+pickle-email-*.html
+**/.bundle
+**/vendor/bundle
+.byebug_history
