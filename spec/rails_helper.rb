@@ -5,6 +5,9 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'support/factory_bot'
 require 'helpers/authenticate_helper'
 
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
+
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
