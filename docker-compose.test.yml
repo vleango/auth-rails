@@ -1,3 +1,24 @@
-sut:
-  build: .
-  command: rspec spec/
+version: "3"
+
+services:
+  sut:
+    user: root
+    build:
+      context: .
+      args:
+        APP_PATH: .
+    depends_on:
+      - db-postgres
+    command: ./test.sh
+  db-postgres:
+    image: postgres:10.1
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rails
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-postgres:/var/lib/postgresql/data
+volumes:
+  db-postgres: {}
