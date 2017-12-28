@@ -17,6 +17,7 @@ RSpec.describe User, :type => :model do
       end
 
       it 'downcase email on save' do
+        expect(1).to eq(2)
         expect(described_class.last.email).to eq(unformat_email.downcase)
       end
 
