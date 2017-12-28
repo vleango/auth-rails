@@ -1,4 +1,6 @@
-FROM ruby:2.3.3
+# rails new project_rails -d=postgresql --skip-yarn --skip-git --skip-puma --skip-action-cable --skip-coffee --skip-turbolinks --skip-test --skip-system-test --api
+
+FROM ruby:2.5.0
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 
 # required to be passed in
