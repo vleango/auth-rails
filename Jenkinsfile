@@ -1,8 +1,9 @@
 pipeline {
     agent {
-        docker {
-            image 'node:6-alpine'
+        dockerfile {
+            filename true
             args '-p 3000:3000'
+            additionalBuildArgs '--build-arg APP_PATH=.'
         }
     }
     stages {
