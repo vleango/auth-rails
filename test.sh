@@ -1,8 +1,10 @@
 #!/bin/bash
 
+echo "*** Dropping existing DB ***"
+RAILS_ENV=test rake db:drop --trace
 echo "*** Creating the database ***"
-rake db:create --trace
+RAILS_ENV=test rake db:create --trace
 echo "*** Migrating the database ***"
-rake db:migrate --trace
+RAILS_ENV=test rake db:migrate --trace
 echo "*** Running RSpec ***"
 rspec
