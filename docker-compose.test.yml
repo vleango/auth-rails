@@ -11,7 +11,7 @@ services:
       - db-postgres
     command: ./test.sh
   db-postgres:
-    image: postgres:10.1
+    image: postgres:9.6.6
     restart: always
     environment:
       POSTGRES_USER: root
