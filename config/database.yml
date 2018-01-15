@@ -80,8 +80,10 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
 production:
   <<: *default
-  database: auth_production
-  username: auth-rails
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  database: auth-production
+  username: <%= ENV['POSTGRES_DB_USER'] %>
+  password: <%= ENV['POSTGRES_DB_PASSWORD'] %>
+  host: <%= ENV['POSTGRES_DB_HOST'] %>
