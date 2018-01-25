@@ -21,4 +21,14 @@ Gem::Specification.new do |s|
   s.add_dependency "bcrypt", "~> 3.1.7"
   s.add_dependency "rack-cors", "~> 1.0.2"
   s.add_dependency "jwt", "~> 2.1.0"
+  s.add_dependency "pg", "~> 0.18"
+
+  s.add_development_dependency "byebug"
+  s.add_development_dependency "rspec-rails", '~> 3.6'
+  s.add_development_dependency "factory_bot", '~> 4.8.2'
+  s.add_development_dependency "faker", '~> 1.8.6'
+  s.add_development_dependency "webmock", '~> 3.1.1'
+  s.add_development_dependency "listen", '>= 3.0.5', '< 3.2'
+  s.add_development_dependency "spring"
+  s.add_development_dependency "spring-watcher-listen", '~> 2.0.0'
 end
