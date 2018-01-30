@@ -1,7 +1,7 @@
 module AuthRails
   module V1
     module Auth
-      class AuthenticateController < ApplicationController
+      class AuthenticateController < AuthRails::ApplicationController
 
         def login
           @user = User.find_by_credentials!(user_params[:email], user_params[:password])
