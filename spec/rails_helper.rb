@@ -34,8 +34,6 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
 
-  FactoryBot.find_definitions
-
   config.include Helpers::AuthenticateHelper
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

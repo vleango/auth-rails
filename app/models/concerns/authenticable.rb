@@ -1,7 +1,7 @@
 module Authenticable
   extend ActiveSupport::Concern
 
-  HMAC_SECRET = Rails.application.secrets.hmac_secret
+  HMAC_SECRET = Rails.application.credentials.hmac_secret
   TOKEN_EXPIRES_TIME = Time.now.to_i + 60 * 60 * 24 * 7 # 1 week
 
   included do

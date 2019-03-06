@@ -5,12 +5,9 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-# TODO
-ALLOWED_FRONTEND_URLS = ['localhost:3000']
-
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins ALLOWED_FRONTEND_URLS
+    origins ['localhost:3000'] # TODO
 
     resource '*',
       headers: :any,
