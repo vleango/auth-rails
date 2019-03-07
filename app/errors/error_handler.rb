@@ -5,7 +5,7 @@ module ErrorHandler
     klass.class_eval do
       rescue_from StandardError do |e|
         case e.class.to_s
-        when 'ActiveRecord::RecordInvalid'
+        when 'ActiveRecord::RecordInvalid', 'ActionController::ParameterMissing'
           respond(422, :validation_error, e.message)
         else
           respond(500, :server_error, e.message)
@@ -21,7 +21,7 @@ module ErrorHandler
   private
 
   def respond(status, error, message)
-    json = { status: status, error: error, message: message }.as_json
-    render json: json
+    json = { error: error, message: message }.as_json
+    render json: json, status: status
   end
 end

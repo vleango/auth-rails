@@ -9,8 +9,9 @@ RSpec.describe 'Authenticate', :type => :request do
 
       it 'returns email not found error' do
         json_response = JSON.parse(response.body)
-        expect(json_response['status']).to eq(422)
-        expect(json_response['error']).to eq('bad_email')
+        expect(response.status).to eq(422)
+        expect(json_response['error']).to eq('authentication_error')
+        expect(json_response['message']).to eq('bad email or password')
       end
 
       it 'does not set the x-auth token' do
@@ -26,8 +27,9 @@ RSpec.describe 'Authenticate', :type => :request do
 
       it 'returns bad password error' do
         json_response = JSON.parse(response.body)
-        expect(json_response['status']).to eq(422)
-        expect(json_response['error']).to eq('bad_password')
+        expect(response.status).to eq(422)
+        expect(json_response['error']).to eq('authentication_error')
+        expect(json_response['message']).to eq('bad email or password')
       end
 
       it 'does not set the x-auth token' do
@@ -62,8 +64,9 @@ RSpec.describe 'Authenticate', :type => :request do
 
       it 'returns a validation error' do
         json_response = JSON.parse(response.body)
-        expect(json_response['status']).to eq(422)
+        expect(response.status).to eq(422)
         expect(json_response['error']).to eq('validation_error')
+        expect(json_response['message']).to eq("Validation failed: Password can't be blank, Last name can't be blank, Email can't be blank, Email is invalid")
       end
     end
 
@@ -102,8 +105,9 @@ RSpec.describe 'Authenticate', :type => :request do
 
       it 'returns a validation error' do
         json_response = JSON.parse(response.body)
-        expect(json_response['status']).to eq(422)
+        expect(response.status).to eq(422)
         expect(json_response['error']).to eq('provider_auth_failed')
+        expect(json_response['message']).to eq('failed to authenticate with the provider')
       end
     end
 

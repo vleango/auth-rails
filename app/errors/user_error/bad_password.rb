@@ -1,9 +1,9 @@
 module UserError
   class BadPassword < CustomError
-    MSG = 'Bad password'
+    MSG = 'bad email or password'
 
     def initialize
-      super(422, :bad_password, MSG)
+      super(422, :authentication_error, MSG)
     end
 
   end
